@@ -16,13 +16,12 @@ video: Chapter 2 - Part 3
  
  1) Write down the names of the 6 major primitive types available in C++  here:
  
- 
- 
- 
- 
- 
- 
- 
+int 
+float
+double
+bool 
+char
+wchar_t 
  
  
 2) for each primitive type, write out 3 variable declarations inside the variableDeclaration() function on line 59.
@@ -64,10 +63,32 @@ void variableDeclarations()
 {
     //example:
     int number = 2; //declaration of a variable named "number", that uses the primitive type 'int', and the variable's initial value is '2'
-    
+    int cookies = 5;
+    int fingers = 10;
+    int feet = 2;
 
+    float earthDiameter = 12742.54f;
+    float wineBottleCapacity = 0.75f;
+    float catWeight = 3.45f;
+
+    double pi = 3.14159265359;
+    double e = 2.71828182846;
+    double goldenRatio = 1.61803398875;
+
+    bool isNight = true;
+    bool isDrunk = false;
+    bool isTired = true;
+
+    char firstInitial = 'J';
+    char secondInitial = 'P';
+    char thirdInitial = 'D';
     
-    ignoreUnused(number); //passing each variable declared to the ignoreUnused() function
+    ignoreUnused(number, cookies, fingers, feet, 
+        earthDiameter, wineBottleCapacity, catWeight,
+        pi, e, goldenRatio,
+        isNight, isDrunk, isTired,
+        firstInitial, secondInitial, thirdInitial
+        ); //passing each variable declared to the ignoreUnused() function
 }
 
 /*
@@ -84,43 +105,79 @@ bool rentACar(int rentalDuration, int carType = 0)  //function declaration with 
 /*
  1)
  */
+float saveMoney(float amount = 0.0)
+{
+    ignoreUnused(amount);
+    return {};
+}
 
 /*
  2)
  */
-
+void cleanHouse(bool isThorough = false)
+{
+    ignoreUnused(isThorough);
+}
 /*
  3)
  */
-
+char chooseRandomLetter(bool isUpperCase = true)
+{
+    ignoreUnused(isUpperCase);
+    return {};
+}
 /*
  4)
  */
-
+void playWithCat(int numberOfMinutes = 10)
+{
+    ignoreUnused(numberOfMinutes);
+}
 /*
  5)
  */
-
+void bingeOnNetflix(int guiltLevel, int numberOfEpisodes = 4)
+{
+    ignoreUnused(guiltLevel, numberOfEpisodes);
+}
 /*
  6)
  */
-
+int throwDart(int pointsExpected = 60)
+{
+    ignoreUnused(pointsExpected);
+    return {};
+}
 /*
  7)
  */
-
+bool jumpOffCliff(bool withParachute = true)
+{
+    ignoreUnused(withParachute);
+    return {};
+}
 /*
  8)
  */
-
+void talkToStranger(int strangerAge, char strangerGender)
+{
+    ignoreUnused(strangerAge, strangerGender);
+}
 /*
  9)
  */
-
+bool giveYouUp(bool isLying = false)
+{
+    ignoreUnused(isLying);
+    return {};
+}
 /*
  10)
  */
-
+void takeBreak(int minutes, bool drinkTea = true)
+{
+    ignoreUnused(minutes, drinkTea);
+}
 /*
  MAKE SURE YOU ARE NOT ON THE MASTER BRANCH
 
@@ -141,27 +198,30 @@ int main()
     auto carRented = rentACar(6, 2); 
     
     //1)
-    
+    auto totalSavings = saveMoney(100.0f);
     //2)
-    
+    cleanHouse(false);
     //3)
-    
+    auto randomLetter = chooseRandomLetter(false);
     //4)
-    
+    playWithCat();
     //5)
-    
+    bingeOnNetflix(0);
     //6)
-    
+    auto pointsScored = throwDart();
     //7)
-    
+    auto hasLandedSafely = jumpOffCliff(true);
     //8)
-    
+    talkToStranger(45, 'F');
     //9)
-    
+    auto never = giveYouUp(false);
     //10)
+    takeBreak(10);
     
+    ignoreUnused(carRented, totalSavings,
+        randomLetter, pointsScored, hasLandedSafely,
+        never);
     
-    ignoreUnused(carRented);
     std::cout << "good to go!" << std::endl;
     return 0;    
 }
